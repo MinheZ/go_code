@@ -2,11 +2,17 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
-type Integer int
+type StringSlice []string
 
 func main() {
-	a := []int{1, 2, 3, 4}
-	fmt.Println(a[1:3])
+	// var str = []string{}
+	strs := sort.StringSlice{"abc", "d"}
+	fmt.Println(strs)
 }
+
+func (p StringSlice) Len() int           { return len(p) }
+func (p StringSlice) Less(i, j int) bool { return len(p[i]) < len(p[j]) }
+func (p StringSlice) Swap(i, j int)      { p[i], p[j] = p[j], p[i] }
